@@ -61,12 +61,12 @@ while True:
         else:
             f=0
          
-            if (f>0 and f<10):
-                c = input ("Columna : ")
-                if(c>0 and c<10):
-                    p = 3*(f-1)+(c-1)
-                    s.send(str(p))
-                    break
+        if (f>0 and f<10):
+            c = int(input ("Columna : "))
+            if(c>0 and c<10):
+                p = 3*(f-1)+(c-1)
+                s.send(str(p).encode('utf-8'))
+            break
         print("\n ingrese rango correcto \n")
         k = s.recv(2)
         if (k=='X') :

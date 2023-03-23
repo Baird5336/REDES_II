@@ -23,11 +23,12 @@ def minas() :
     print ("     |=======|=======|=======|=========|======|=====|======|=======|======|")
     print ("i   |   %c  |   %c  |   %c  |  %c     |  %c  |  %c |  %c   |  %c  |     %c"%(M[73], M[74], M[75], M[76], M[77], M[78], M[79], M[80], M[81]))
     print ("     |=======|=======|=======|=========|======|=====|======|=======|======|")
-    def ganar(M) :
-        ganador = True
-    for i in range (9) :
-        if M[1] == '0' :
-            ganador = False
+
+def ganar(M):
+    ganador = True
+    for i in range (9):
+        if M[i]=='0':
+            ganador = False 
     return ganador
 
 M=['0', '0', '0', '0', '0', '0', '0', '0', '0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0']
@@ -58,16 +59,9 @@ while True :
     else:
         k='*'
         M[p]='-'
-        sc.send(k)
-def ganar(M) :
-        ganador = True
-        for i in range (9) :
-            if M[1] == '0' :
-                ganador = False
-            return ganador        
-        
+        sc.send(k.encode('utf-8'))
         gana = ganar(M)
-        sc.send(str(gana))
+        sc.send(str(gana).encode('utf-8'))
         if (k== 'x') :
             print ("\n Le diste a una mina jaja")
             break
